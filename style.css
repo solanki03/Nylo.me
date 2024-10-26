@@ -1,0 +1,12 @@
+/* Initially hide buttons */
+.ri-edit-line, .ri-delete-bin-6-line {
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth transition for appearance */
+  }
+  
+  /* Show buttons on hover */
+  .hover-container:hover .ri-edit-line,
+  .hover-container:hover .ri-delete-bin-6-line {
+    opacity: 1;
+  }
+  

@@ -23,6 +23,49 @@
     />
   </head>
   <body class="bg-[#201A18] text-[#EDE0DB]">
-    
+    <!-- Sidebar section -->
+    <header class="w-80 py-5 px-3 h-screen shadow-[#110d0b] shadow-xl fixed">
+
+      <div class="flex items-center justify-between p-2 mb-6">
+        <div class="flex items-center">
+          <img src="./public/note.png" alt="Nylo.me" class="h-7">
+          <p class="ml-1 text-xl font-kumbhSans">Nylo.me</p>
+        </div>
+        <button>
+          <i class="ri-close-line bg-[#4e413c] rounded-full p-1.5 hover:bg-[#5C4032]"></i>
+        </button>
+      </div>
+
+      <!-- create notes section -->
+       <div class="flex items-center justify-between py-1 px-2 mb-3">
+        <p class="text-base">NOTES</p>
+        <button class="">
+          <i class="ri-add-line rounded-full p-1.5 hover:bg-[#5C4032]"></i>
+        </button>
+       </div>
+
+      <!-- my note collection section -->
+       <div class="overflow-y-auto h-screen">
+        
+         <div class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#5C4032] hover-container">
+          <p class="text-sm">My Note</p>
+          <div>
+            <button class="ri-edit-line mr-5"></button>
+            <button class="ri-delete-bin-6-line"></button>
+          </div>
+
+       </div>
+
+      <!-- copyright section -->
+       <div class="w-full text-sm absolute bottom-0 left-0 py-5 bg-[#201A18]">
+        <p class="px-5">&copy; 2024 
+          <a href="https://github.com/solanki03" target="_blank" rel="noopener noreferrer" aria-label="Link to solanki03 GitHub profile" class="font-semibold">solanki03</a>
+        </p> 
+       </div>
+      
+    </header>
+    <!-- Script tags -->
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/theme.js"></script>
   </body>
 </html>
