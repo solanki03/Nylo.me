@@ -1,13 +1,37 @@
 /* Initially hide buttons */
-.ri-edit-line, .ri-delete-bin-6-line, .ri-delete-bin-5-line {
+.ri-edit-line,
+.ri-delete-bin-6-line,
+.ri-delete-bin-5-line {
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Smooth transition for appearance */
+}
+
+/* Show buttons on hover */
+.hover-container:hover .ri-edit-line,
+.hover-container:hover .ri-delete-bin-6-line,
+.hover-container:hover .ri-delete-bin-5-line {
+  opacity: 1;
+}
+
+::selection {
+  background-color: #FFDBCA; 
+  color: #181210; 
+}
+
+/*Modal Opening animation*/
+.modal-motion{
+  animation: modal-open 400ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+@keyframes modal-open {
+  0%{
+    transform: translate(-50%, calc(-50% + 20px));
     opacity: 0;
-    transition: opacity 0.3s ease; /* Smooth transition for appearance */
-  }
-  
-  /* Show buttons on hover */
-  .hover-container:hover .ri-edit-line,
-  .hover-container:hover .ri-delete-bin-6-line,
-  .hover-container:hover .ri-delete-bin-5-line {
+    visibility: hidden;
+  } 
+  100% {
+    transform: translate(-50%, -50%);
     opacity: 1;
+    visibility: visible;
   }
-  
+}

@@ -1,132 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/note.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Nylo.me - Your Everyday Notes | Effortless Note-Taking</title>
+    <meta
+      name="title"
+      content="Nylo.me - Your Everyday Notes | Effortless Note-Taking"
+    />
+    <meta
+      name="description"
+      content="Streamline your daily note-taking with Notekeeper. Organize, access, and enhance productivity with ease. Your go-to platform for managing your everyday notes.
+    "
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/note.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./main.css" />
-  <link rel="stylesheet" href="./style.css" />
-  <title>Nylo.me - Your Everyday Notes | Effortless Note-Taking</title>
-  <meta name="title" content="Nylo.me - Your Everyday Notes | Effortless Note-Taking" />
-  <meta name="description" content="Streamline your daily note-taking with Notekeeper. Organize, access, and enhance productivity with ease. Your go-to platform for managing your everyday notes.
-    " />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500&display=swap" rel="stylesheet" />
-
-  <!-- Remix icon -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-</head>
-<body class="bg-[#201A18] text-[#EDE0DB]">
-  <!-- Sidebar section start -->
-  <header class="hidden w-80 py-5 px-3 h-screen bg-[#201A18] shadow-[#110d0b] shadow-xl fixed">
-    <!-- logo section start -->
-    <div class="flex items-center justify-between p-2 mb-6">
-      <div class="flex items-center">
-        <img src="./public/note.png" alt="Nylo.me" class="h-7" />
-        <p class="ml-1 text-xl font-kumbhSans">Nylo.me</p>
+    <!-- Remix icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#201A18] text-[#EDE0DB]">
+    <!-- Sidebar section start -->
+    <header
+      class="hidden w-80 py-5 px-3 h-screen bg-[#201A18] shadow-[#110d0b] shadow-xl fixed"
+    >
+      <!-- logo section start -->
+      <div class="flex items-center justify-between p-2 mb-6">
+        <div class="flex items-center">
+          <img src="./public/note.png" alt="Nylo.me" class="h-7" />
+          <p class="ml-1 text-xl font-kumbhSans">Nylo.me</p>
+        </div>
+        <button>
+          <i
+            class="ri-close-line bg-[#4e413c] rounded-full p-1.5 hover:bg-[#5C4032]"
+          ></i>
+        </button>
       </div>
-      <button>
-        <i class="ri-close-line bg-[#4e413c] rounded-full p-1.5 hover:bg-[#5C4032]"></i>
-      </button>
-    </div>
-    <!-- logo section end -->
+      <!-- logo section end -->
 
-    <!-- create notes section start -->
-    <div class="flex items-center justify-between py-1 px-2 mb-3">
-      <p class="text-base">LIBRARY</p>
-      <button class="">
-        <i class="ri-add-line rounded-full p-1.5 hover:bg-[#5C4032]"></i>
-      </button>
-    </div>
-    <!-- create notes section end -->
+      <!-- create notes section start -->
+      <div class="flex items-center justify-between py-1 px-2 mb-3">
+        <p class="text-base">LIBRARY</p>
+        <button class="">
+          <i class="ri-add-line rounded-full p-1.5 hover:bg-[#5C4032]"></i>
+        </button>
+      </div>
+      <!-- create notes section end -->
 
-    <!-- my note collection section start -->
-    <div class="overflow-y-auto h-screen">
-      <div class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#5C4032] hover-container">
-        <p class="text-sm">My Collection</p>
-        <div>
-          <button class="ri-edit-line mr-5"></button>
-          <button class="ri-delete-bin-6-line"></button>
+      <!-- my note collection section start -->
+      <div class="overflow-y-auto h-screen">
+        <div
+          class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#5C4032] hover-container"
+        >
+          <p class="text-sm">My Collection</p>
+          <div>
+            <button class="ri-edit-line mr-5"></button>
+            <button class="ri-delete-bin-6-line"></button>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- my note collection section end -->
+      <!-- my note collection section end -->
 
-    <!-- copyright section start -->
-    <div class="w-full text-sm absolute bottom-0 left-0 py-5 bg-[#201A18]">
-      <p class="px-5">
-        &copy; 2024
-        <a href="https://github.com/solanki03" target="_blank" rel="noopener noreferrer"
-          aria-label="Link to solanki03 GitHub profile" class="font-semibold">solanki03</a>
-      </p>
-    </div>
-    <!-- copyright section end -->
-  </header>
-  <!-- Sidebar section end -->
-
-  <!-- Main section start -->
-  <main class="p-4">
-    <!-- Header section start -->
-    <div class="flex items-center justify-between pb-5">
-      <div>
-        <p class="text-xl font-medium">Good Morning</p>
-        <p class="text-sm text-[#D7C2B9]">Sun, Oct 10 2024</p>
-      </div>
-
-      <div>
-        <!-- Theme changing buttons -->
-        <button>
-          <i class="hidden ri-moon-line rounded-full p-2 hover:bg-[#5C4032]"></i>
-          <i class="ri-sun-line rounded-full p-2 hover:bg-[#5C4032]"></i>
-        </button>
-        
-        <!-- menu button -->
-        <button class="ml-1">
-          <i class="ri-menu-line rounded-full p-2 hover:bg-[#5C4032]"></i>
-        </button>
-      </div>
-      
-    </div>
-    <!-- Header section end -->
-
-    <!-- Note list container start -->
-    <h2 class="mb-3">My Collection</h2>
-
-     <div class="relative grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] content-start items-stretch gap-2">
-      <!-- card -->
-      <div class="bg-[#181210] p-4 border-2 border-[#52443D] rounded-2xl cursor-pointer hover:bg-[#2e2b2b] hover:border-[#645c58] hover-container flex flex-col">
-        <h3 class="text-[#D7C2B9] text-wrap mb-3">Note title</h3>
-        <p class="mb-4 overflow-hidden line-clamp-4">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis molestiae quo explicabo cum asperiores necessitatibus aspernatur, sapiente obcaecati tempore voluptatum consequuntur nulla labore illum laborum minus, sequi corporis commodi repudiandae!
+      <!-- copyright section start -->
+      <div class="w-full text-sm absolute bottom-0 left-0 py-5 bg-[#201A18]">
+        <p class="px-5">
+          &copy; 2024
+          <a
+            href="https://github.com/solanki03"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to solanki03 GitHub profile"
+            class="font-semibold"
+            >solanki03</a
+          >
         </p>
+      </div>
+      <!-- copyright section end -->
+    </header>
+    <!-- Sidebar section end -->
 
-        <div class="flex items-center justify-between mt-auto text-sm">
-          <p>20 min ago</p>
-          <button class="hover:hover-container">
-            <i class="ri-delete-bin-5-line rounded-full p-2 hover:bg-[#5C4032]"></i>
+    <!-- Main section start -->
+    <main class="p-4">
+      <!-- Header section start -->
+      <div class="flex items-center justify-between pb-5">
+        <div>
+          <p class="text-xl font-medium">Good Morning</p>
+          <p class="text-sm text-[#D7C2B9]">Sun, Oct 10 2024</p>
+        </div>
+
+        <div>
+          <!-- Theme changing buttons -->
+          <button>
+            <i
+              class="hidden ri-moon-line rounded-full p-2 hover:bg-[#5C4032]"
+            ></i>
+            <i class="ri-sun-line rounded-full p-2 hover:bg-[#5C4032]"></i>
+          </button>
+
+          <!-- menu button -->
+          <button class="ml-1">
+            <i class="ri-menu-line rounded-full p-2 hover:bg-[#5C4032]"></i>
           </button>
         </div>
       </div>
-    
-     </div>
-    <!-- Note list container end -->
+      <!-- Header section end -->
 
-    <!-- Create note button for mobile start-->
-     <button class="bg-[#552100] text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#783200]">
-      <i class="ri-add-large-line mr-2"></i> New note
-     </button>
-     <!-- Create note button for mobile start-->
-   </main>
-   <!-- Main section end -->
+      <!-- Note list container start -->
+      <h2 class="mb-3">My Collection</h2>
 
+      <div
+        class="relative grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] content-start items-stretch gap-2"
+      >
+        <!-- card -->
+        <div
+          class="bg-[#181210] p-4 border-2 border-[#52443D] rounded-2xl cursor-pointer hover:bg-[#2e2b2b] hover:border-[#645c58] hover-container flex flex-col"
+        >
+          <h3 class="text-[#D7C2B9] text-wrap mb-3">Note title</h3>
+          <p class="mb-4 overflow-hidden line-clamp-4">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Perspiciatis molestiae quo explicabo cum asperiores necessitatibus
+            aspernatur, sapiente obcaecati tempore voluptatum consequuntur nulla
+            labore illum laborum minus, sequi corporis commodi repudiandae!
+          </p>
 
-  <!-- Script tags -->
-  <script type="module" src="./js/app.js"></script>
-  <script type="module" src="./js/theme.js"></script>
-</body>
+          <div class="flex items-center justify-between mt-auto text-sm">
+            <p>20 min ago</p>
+            <button class="hover:hover-container">
+              <i
+                class="ri-delete-bin-5-line rounded-full p-2 hover:bg-[#5C4032]"
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Note list container end -->
 
+      <!-- Create note button for mobile start-->
+      <button
+        class="bg-[#552100] text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#783200]"
+      >
+        <i class="ri-add-large-line mr-2"></i> New note
+      </button>
+      <!-- Create note button for mobile end-->
+
+      <!-- Modal section start -->
+      <!-- Add a note section start -->
+      <div
+        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 max-w-[560px] p-6 rounded-2xl bg-[#3A3330] shadow-[#110d0b] shadow-md z-50 modal-motion"
+      >
+        <button class="absolute top-4 right-4">
+          <i class="ri-close-line"></i>
+        </button>
+
+        <input
+          type="text"
+          placeholder="Untitled"
+          value="Untitled"
+          class="pe-10 pl-2 py-1 max-h-12 mb-4 bg-transparent rounded-md focus:outline-none focus:ring-[#A08D84] focus:ring-2"
+        />
+        <textarea
+          placeholder="Take a note..."
+          class="bg-transparent min-h-60 max-h-[600px] w-full overflow-y-auto p-2 rounded-md focus:outline-none focus:ring-[#A08D84] focus:ring-2"
+        ></textarea>
+
+        <div class="flex items-center justify-between mt-2">
+          <p>20 min ago</p>
+          <button
+            class="text-[#FFB690] font-medium px-6 py-2 rounded-3xl cursor-pointer hover:bg-[#FFB690] hover:text-[#181210] hover:shadow-[#201A18] hover:shadow-md hover:transition-opacity"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+      <!-- Add a note section end -->
+
+      <!-- Delete a note section start -->
+      <div
+        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 max-w-[560px] p-6 rounded-2xl bg-[#3A3330] shadow-[#110d0b] shadow-md z-50 modal-motion"
+      >
+        <h3>Are you sure you want to delete <strong>"Note title"</strong>?</h3>
+        <div class="flex items-center justify-end mt-2">
+          <button
+            class="text-[#FFB690] font-medium px-5 py-2 rounded-3xl cursor-pointer hover:bg-[#52443D] hover:shadow-[#201A18] hover:shadow-md hover:transition-opacity"
+          >
+            Cancel
+          </button>
+          <button
+            class="bg-[#FFB690] text-[#181210] font-medium px-5 py-2 rounded-3xl cursor-pointer hover:shadow-[#201A18] hover:shadow-md hover:transition-opacity"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <!-- Delete a note section end -->
+      <!-- Modal section end -->
+
+      <!-- empty notes section start -->
+      <div
+        class="hidden absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none"
+      >
+        <i class="ri-sticky-note-line text-6xl opacity-25"></i>
+        <h3 class="opacity-25 text-xl font-semibold">No notes</h3>
+      </div>
+      <!-- empty notes section end -->
+    </main>
+    <!-- Main section end -->
+
+    <!-- Script tags -->
+    <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/theme.js"></script>
+  </body>
 </html>
