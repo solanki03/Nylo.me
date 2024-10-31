@@ -21,9 +21,9 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
-<body class="bg-[#201A18] text-[#EDE0DB] lg:ps-[330px]">
+<body class="bg-[#FFFBFF] text-[#201A18] lg:ps-[330px] dark:bg-[#201A18] dark:text-[#EDE0DB]">
   <!-- Sidebar section start -->
-  <header class="fixed top-0 left-0 w-80 z-20 h-screen py-5 px-3 bg-[#201A18] shadow-lg transform -translate-x-full transition-transform duration-300 lg:translate-x-0" data-sidebar>
+  <header class="fixed top-0 left-0 w-80 z-20 h-screen py-5 px-3 bg-[#FFF8F6] dark:bg-[#201A18] shadow-lg transform -translate-x-full transition-transform duration-300 lg:translate-x-0" data-sidebar>
     <!-- logo section start -->
     <div class="flex items-center justify-between p-2 mb-6">
       <div class="flex items-center">
@@ -32,7 +32,7 @@
       </div>
       <!-- close sidebar button -->
       <button data-sidebar-toggler>
-        <i class="ri-close-line bg-[#4e413c] rounded-full p-1.5 hover:bg-[#5C4032]"></i>
+        <i class="ri-close-line bg-[#FFDBCA] dark:bg-[#4e413c] rounded-full p-1.5 hover:bg-[#D7C2B9] hover:dark:bg-[#5C4032]"></i>
       </button>
     </div>
     <!-- logo section end -->
@@ -40,15 +40,15 @@
     <!-- create notes section start -->
     <div class="flex items-center justify-between py-1 px-2 mb-3">
       <p class="text-base">LIBRARY</p>
-      <button class="">
-        <i class="ri-add-line rounded-full p-1.5 hover:bg-[#5C4032]"></i>
+      <button data-add-notebook>
+        <i class="ri-add-line rounded-full p-1.5 hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032]"></i>
       </button>
     </div>
     <!-- create notes section end -->
 
     <!-- my note collection section start -->
-    <div class="overflow-y-auto h-screen">
-      <div class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#5C4032] hover-container">
+    <div class="overflow-y-auto h-screen" data-sidebar-list>
+      <div class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032] hover-container">
         <p class="text-sm">My Collection</p>
         <div>
           <button class="ri-edit-line mr-5"></button>
@@ -59,7 +59,7 @@
     <!-- my note collection section end -->
 
     <!-- copyright section start -->
-    <div class="w-full text-sm absolute bottom-0 left-0 py-5 bg-[#201A18]">
+    <div class="w-full text-sm absolute bottom-0 left-0 py-5 bg-[#FFF8F6] dark:bg-[#201A18]">
       <p class="px-5">
         &copy; 2024
         <a href="https://github.com/solanki03" target="_blank" rel="noopener noreferrer"
@@ -78,20 +78,22 @@
     <!-- Header section start -->
     <div class="flex items-center justify-between pb-5">
       <div>
-        <p class="text-xl font-medium">Good Morning</p>
-        <p class="text-sm text-[#D7C2B9]">Sun, Oct 10 2024</p>
+        <p class="text-xl font-medium" data-greeting>Good Morning</p>
+        <p class="text-sm text-[#52443D] dark:text-[#D7C2B9]" data-current-data>
+          Sun, Oct 10 2024
+        </p>
       </div>
 
       <div>
         <!-- Theme changing buttons -->
-        <button>
-          <i class="hidden ri-moon-line rounded-full p-2 hover:bg-[#5C4032]"></i>
-          <i class="ri-sun-line rounded-full p-2 hover:bg-[#5C4032]"></i>
+        <button data-theme-btn>
+          <i class="ri-moon-line rounded-full p-2 hover:bg-[#FFDBCA]  hover:dark:bg-[#5C4032]"></i>
+          <i class="ri-sun-line rounded-full p-2 hover:bg-[#FFDBCA]  hover:dark:bg-[#5C4032]"></i>
         </button>
 
         <!-- menu button -->
         <button class="ml-1" data-sidebar-overlay data-sidebar-toggler>
-          <i class="ri-menu-line rounded-full p-2 hover:bg-[#5C4032] lg:hidden"></i>
+          <i class="ri-menu-line rounded-full p-2 hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032] lg:hidden"></i>
         </button>
       </div>
     </div>
@@ -103,8 +105,8 @@
     <div class="relative grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] content-start items-stretch gap-2">
       <!-- card -->
       <div
-        class="bg-[#181210] hidden p-4 border-2 border-[#52443D] rounded-2xl cursor-pointer hover:bg-[#2e2b2b] hover:border-[#645c58] hover-container flex flex-col">
-        <h3 class="text-[#D7C2B9] text-wrap mb-3">Note title</h3>
+        class="bg-[#EDE0DB] dark:bg-[#181210] p-4 hidden border-2 border-[#85736B] dark:border-[#52443D] rounded-2xl cursor-pointer hover:bg-[#D7C2B9] hover:dark:bg-[#2e2b2b] hover:border-[#645c58] hover-container flex flex-col">
+        <h3 class="text-[#2B160A] dark:text-[#D7C2B9] text-wrap mb-3">Note title</h3>
         <p class="mb-4 overflow-hidden line-clamp-4">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           Perspiciatis molestiae quo explicabo cum asperiores necessitatibus
@@ -115,24 +117,24 @@
         <div class="flex items-center justify-between mt-auto text-sm">
           <p>20 min ago</p>
           <button class="hover:hover-container">
-            <i class="ri-delete-bin-5-line rounded-full p-2 hover:bg-[#5C4032]"></i>
+            <i class="ri-delete-bin-5-line rounded-full p-2 hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032]"></i>
           </button>
         </div>
       </div>
     </div>
     <!-- Note list container end -->
 
-    <!-- Create note button for mobile start-->
+    <!-- Create note button start-->
     <button
-      class="bg-[#552100] text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#783200] lg:bottom-10 lg:right-14">
+      class="bg-[#FFDBCA] dark:bg-[#552100] dark:text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#85736B] dark:shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#D7C2B9] hover:dark:bg-[#783200] lg:bottom-10 lg:right-14">
       <i class="ri-add-large-line mr-2"></i> New note
     </button>
-    <!-- Create note button for mobile end-->
+    <!-- Create note button end-->
 
     <!-- Modal section start -->
     <!-- Add a note section start -->
     <div
-      class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 max-w-[560px] p-6 rounded-2xl bg-[#3A3330] shadow-[#110d0b] shadow-md z-50 modal-motion">
+      class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 max-w-[560px] p-6 rounded-2xl bg-[#FFDBCA] shadow-[#85736B] dark:bg-[#3A3330] dark:shadow-[#110d0b] shadow-md z-50 modal-motion">
       <button class="absolute top-4 right-4">
         <i class="ri-close-line"></i>
       </button>
@@ -145,7 +147,7 @@
       <div class="flex items-center justify-between mt-2">
         <p>20 min ago</p>
         <button
-          class="text-[#FFB690] font-medium px-6 py-2 rounded-3xl cursor-pointer hover:bg-[#FFB690] hover:text-[#181210] hover:shadow-[#201A18] hover:shadow-md hover:transition-opacity">
+          class="dark:text-[#FFB690] font-medium px-6 py-2 rounded-3xl cursor-pointer hover:bg-[#e78355] hover:text-[#FBEEE9] hover:shadow-[#85736B] hover:dark:bg-[#FFB690] hover:dark:text-[#181210] hover:dark:shadow-[#201A18] hover:shadow-md hover:transition-opacity">
           Save
         </button>
       </div>
@@ -154,15 +156,15 @@
 
     <!-- Delete a note section start -->
     <div
-      class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 max-w-[560px] p-6 rounded-2xl bg-[#3A3330] shadow-[#110d0b] shadow-md z-50 modal-motion">
+      class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 max-w-[560px] p-6 rounded-2xl bg-[#FFDBCA] shadow-[#85736B] dark:bg-[#3A3330] dark:shadow-[#110d0b] shadow-md z-50 modal-motion">
       <h3>Are you sure you want to delete <strong>"Note title"</strong>?</h3>
       <div class="flex items-center justify-end mt-2">
         <button
-          class="text-[#FFB690] font-medium px-5 py-2 rounded-3xl cursor-pointer hover:bg-[#52443D] hover:shadow-[#201A18] hover:shadow-md hover:transition-opacity">
+          class="dark:text-[#FFB690] font-medium px-5 py-2 mr-1 rounded-3xl cursor-pointer hover:bg-[#FFB690] hover:dark:bg-[#52443D] hover:shadow-[#85736B] hover:dark:shadow-[#201A18] hover:shadow-md hover:transition-opacity">
           Cancel
         </button>
         <button
-          class="bg-[#FFB690] text-[#181210] font-medium px-5 py-2 rounded-3xl cursor-pointer hover:shadow-[#201A18] hover:shadow-md hover:transition-opacity">
+          class="bg-[#FFB690] text-[#181210] font-medium px-5 py-2 rounded-3xl cursor-pointer hover:shadow-[#85736B] hover:dark:shadow-[#201A18] hover:shadow-md hover:transition-opacity">
           Delete
         </button>
       </div>
