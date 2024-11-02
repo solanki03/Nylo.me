@@ -1,6 +1,6 @@
 'use strict';
 
-import { addEventOnElements, getGreetingMsg } from "./utils.js";
+import { addEventOnElements, getGreetingMsg, activeNotebook, makeElementEditable } from "./utils.js";
 
 // ----- Toggle Sidebar in small screen -----
 const $sideBar = document.querySelector('[data-sidebar]');
@@ -24,15 +24,34 @@ const $currentDateElement = document.querySelector('[data-current-data]');
 $currentDateElement.textContent = new Date().toDateString().replace(' ',', ');
 
 
-// ----- Notebook create field ----- 
+// ----- Notebook create field -----
 const $sidebarList = document.querySelector('[data-sidebar-list]');
 const $addNotebookbtn = document.querySelector('[data-add-notebook]');
 
-const showNootbookField = () =>{
+const showNotebookField = () => {
+    // Create a new note item   'bg-[#FFF8F6]', 'dark:bg-[#201A18]'
     const $item = document.createElement('div');
-    $item.classList.add('nav-item');
+    $item.classList.add('flex', 'items-center', 'justify-between', 'p-3', 'rounded-3xl',  'hover:bg-[#FFDBCA]', 'hover:dark:bg-[#5C4032]', 'hover-container');
+    
+    // Add content to the new note item
+    $item.innerHTML = `
+        <p class="text-sm" data-notebook-field></p>
+    `;
 
-    $item.innerHTML = ``;
+    // Append the new item to the sidebar list
+    $sidebarList.appendChild($item);
+
+    const $itemField = $item.querySelector('[data-notebook-field]');
+
+    // Activate the newly created notebook and deactivate the previous one
+    activeNotebook.call($item);
+
+    // make notebook field editable and focus
+    makeElementEditable($itemField);
+
+    // when user pree "Enter" then create a notebook
+    $itemField.addEventListener('keydown', createNoteBook);
 }
 
-$addNotebookbtn.addEventListener('click', showNootbookField);
+// Attach event listener to the "add" button
+$addNotebookbtn.addEventListener('click', showNotebookField);

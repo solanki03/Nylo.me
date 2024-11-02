@@ -21,7 +21,7 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
-<body class="bg-[#FFFBFF] text-[#201A18] lg:ps-[330px] dark:bg-[#201A18] dark:text-[#EDE0DB]">
+<body class="bg-[#FFFBFF] text-[#201A18] lg:ps-[330px] dark:bg-[#201A18] dark:text-[#EDE0DB] font-kumbhSans">
   <!-- Sidebar section start -->
   <header class="fixed top-0 left-0 w-80 z-20 h-screen py-5 px-3 bg-[#FFF8F6] dark:bg-[#201A18] shadow-lg transform -translate-x-full transition-transform duration-300 lg:translate-x-0" data-sidebar>
     <!-- logo section start -->
@@ -48,13 +48,13 @@
 
     <!-- my note collection section start -->
     <div class="overflow-y-auto h-screen" data-sidebar-list>
-      <div class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032] hover-container">
-        <p class="text-sm">My Collection</p>
+      <!-- <div class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032] hover-container">
+        <p class="text-sm" data-notebook-field>My Collection</p>
         <div>
-          <button class="ri-edit-line mr-5"></button>
-          <button class="ri-delete-bin-6-line"></button>
+          <button class="ri-edit-line mr-5" data-edit-btn></button>
+          <button class="ri-delete-bin-6-line" data-delete-btn></button>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- my note collection section end -->
 
@@ -126,7 +126,7 @@
 
     <!-- Create note button start-->
     <button
-      class="bg-[#FFDBCA] dark:bg-[#552100] dark:text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#85736B] dark:shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#D7C2B9] hover:dark:bg-[#783200] lg:bottom-10 lg:right-14">
+      class="bg-[#FFDBCA] dark:bg-[#552100] dark:text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#85736B] dark:shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#D7C2B9] hover:dark:bg-[#783200] lg:bottom-10 lg:right-14" data-note-create-btn>
       <i class="ri-add-large-line mr-2"></i> New note
     </button>
     <!-- Create note button end-->
