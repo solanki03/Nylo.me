@@ -20,24 +20,12 @@ const getGreetingMsg = function (currentHour) {
 }
 
 let $lastActiveItem;
-/*
-const activeNotebook = function (item) {
-    // Deactivate the previously active item, if it exists
-    $lastActiveItem?.classList.remove('bg-[#FFDBCA]','dark:bg-[#5C4032]');
-
-    // Activate the current item
-    this.classList.add('bg-[#FFDBCA]','dark:bg-[#5C4032]');     // this: $item
-
-    // Update the last active item reference
-    $lastActiveItem = this;     // this: $item
-}
-*/
 
 const activeNotebook = function () {
     // Deactivate the previously active item, if it exists
     if ($lastActiveItem) {
         $lastActiveItem.classList.remove('bg-[#FFDBCA]', 'dark:bg-[#5C4032]');
-        $lastActiveItem.style.backgroundColor = ''; // Reset inline style
+        $lastActiveItem.style.backgroundColor = ''; 
     }
 
     // Check if dark mode is active
@@ -46,25 +34,32 @@ const activeNotebook = function () {
     // Apply the appropriate background class
     if (isDarkMode) {
         this.classList.add('dark:bg-[#5C4032]');
-        this.style.backgroundColor = '#5C4032'; // Apply inline style for dark mode
+        this.style.backgroundColor = '#5C4032'; 
     } else {
         this.classList.add('bg-[#FFDBCA]');
-        this.style.backgroundColor = '#FFDBCA'; // Apply inline style for light mode
+        this.style.backgroundColor = '#FFDBCA'; 
     }
 
     // Update the last active item reference
     $lastActiveItem = this;
 };
 
-
+// to edit the name of the notebook
 const makeElementEditable = function ($element) {
     $element.setAttribute('contenteditable', true);
+    $element.setAttribute('aria-live', 'polite');
     $element.focus();
 };
+
+// generates a unique ID based on the current timestamp
+const  generateID = function (){
+    return new Date().getTime().toString();
+}
 
 export {
     addEventOnElements,
     getGreetingMsg,
     activeNotebook,
-    makeElementEditable
+    makeElementEditable,
+    generateID
 };

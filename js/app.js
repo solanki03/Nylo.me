@@ -1,6 +1,8 @@
 'use strict';
 
 import { addEventOnElements, getGreetingMsg, activeNotebook, makeElementEditable } from "./utils.js";
+import { db } from "./db.js";
+import { client } from "./client.js";
 
 // ----- Toggle Sidebar in small screen -----
 const $sideBar = document.querySelector('[data-sidebar]');
@@ -29,9 +31,9 @@ const $sidebarList = document.querySelector('[data-sidebar-list]');
 const $addNotebookbtn = document.querySelector('[data-add-notebook]');
 
 const showNotebookField = () => {
-    // Create a new note item   'bg-[#FFF8F6]', 'dark:bg-[#201A18]'
+    // Create a new note item 
     const $item = document.createElement('div');
-    $item.classList.add('flex', 'items-center', 'justify-between', 'p-3', 'rounded-3xl',  'hover:bg-[#FFDBCA]', 'hover:dark:bg-[#5C4032]', 'hover-container');
+    $item.classList.add('flex', 'items-center', 'justify-between', 'h-[44px]', 'p-3', 'rounded-3xl',  'hover:bg-[#FFDBCA]', 'hover:dark:bg-[#5C4032]', 'hover-container');
     
     // Add content to the new note item
     $item.innerHTML = `
@@ -55,3 +57,25 @@ const showNotebookField = () => {
 
 // Attach event listener to the "add" button
 $addNotebookbtn.addEventListener('click', showNotebookField);
+
+const createNoteBook = function(event) {
+    if (event.key === 'Enter') {
+        // Create and store a new notebook
+        const notebookData = db.post.notebook(this.textContent || 'Untitled'); // 'this' refers to $itemField
+
+        // Remove the temporary input element
+        this.parentElement.remove();
+
+        // Render the new item in the sidebar
+        client.notebook.create(notebookData);
+    }
+};
+
+// Renders the existing notebook list by retrieving data from the database and passing it to the client
+const renderExistedNotebook = function (){
+    const  notebookList = db.get.notebook();
+    client.notebook.read(notebookList);
+    
+}
+
+renderExistedNotebook();
