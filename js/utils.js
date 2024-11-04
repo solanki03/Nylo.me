@@ -25,23 +25,18 @@ const activeNotebook = function () {
     // Deactivate the previously active item, if it exists
     if ($lastActiveItem) {
         $lastActiveItem.classList.remove('bg-[#FFDBCA]', 'dark:bg-[#5C4032]');
-        $lastActiveItem.style.backgroundColor = ''; 
     }
 
     // Check if dark mode is active
     const isDarkMode = document.documentElement.classList.contains('dark');
+    //console.log(isDarkMode);
 
-    // Apply the appropriate background class
-    if (isDarkMode) {
-        this.classList.add('dark:bg-[#5C4032]');
-        this.style.backgroundColor = '#5C4032'; 
-    } else {
-        this.classList.add('bg-[#FFDBCA]');
-        this.style.backgroundColor = '#FFDBCA'; 
-    }
+    this.classList.add(isDarkMode ? 'bg-[#5C4032]' : 'bg-[#FFDBCA]');
 
     // Update the last active item reference
     $lastActiveItem = this;
+    //console.log(this);
+    
 };
 
 // to edit the name of the notebook
@@ -52,14 +47,21 @@ const makeElementEditable = function ($element) {
 };
 
 // generates a unique ID based on the current timestamp
-const  generateID = function (){
+const generateID = function (){
     return new Date().getTime().toString();
-}
+};
+
+// finds a notebook in database by its ID
+const findNotebook = function (db, notebookId){
+    return db.notebooks.find(notebook => notebook.id === notebookId);
+};
+
 
 export {
     addEventOnElements,
     getGreetingMsg,
     activeNotebook,
     makeElementEditable,
-    generateID
+    generateID,
+    findNotebook
 };

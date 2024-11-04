@@ -1,6 +1,8 @@
 'use strict';
 
-import { activeNotebook } from "../utils";
+import { activeNotebook, makeElementEditable } from "../utils";
+import { db } from "../db";
+import { client } from "../client";
 
 const $notePanelTitle = document.querySelector('[data-note-panel-title]');
 
@@ -24,7 +26,27 @@ export const SidebarItem = function (id, name) {
     $sidebarItem.addEventListener('click', function(){
         $notePanelTitle.textContent = name;
         activeNotebook.call(this);
-    })
+    });
+
+    // notebook edit functionality
+    const $itemEditBtn = $sidebarItem.querySelector('[data-edit-btn]');
+    const $itemField = $sidebarItem.querySelector('[data-notebook-field]'); 
+
+    $itemEditBtn.addEventListener('click', makeElementEditable.bind(null, $itemField));
+
+    $itemField.addEventListener('keydown', function(event){
+        if(event.key === 'Enter'){
+            this.removeAttribute('contenteditable');
+            this.blur(); 
+
+            // update edited data in database
+            const updatedNotebookData = db.update.notebook(id, this.textContent);
+
+            // render updated notebook
+            client.notebook.update(id, updatedNotebookData);
+
+        }
+    });
 
     return $sidebarItem;
 }
