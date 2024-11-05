@@ -5,6 +5,7 @@ import { activeNotebook } from "./utils.js";
 
 const $sidebarListItem = document.querySelector('[data-sidebar-list]');
 const $notePanelTitle = document.querySelector('[data-note-panel-title]');
+const $notePanel = document.querySelector('[data-note-panel]');
 
 // The client object manages interaction with the UI to create, read, update, and delete notebooks and notes. 
 // It provides functions for performing these operations & updating the UI accordingly.
@@ -41,6 +42,21 @@ export const client = {
             $notePanelTitle.textContent = notebookData.name;
             $sidebarListItem.replaceChild($newNotebook, $oldNotebook);
             activeNotebook.call($newNotebook);
+        },
+
+        // deletes a notebook from the UI
+        delete(notebookId){
+            const $deletedNotebook = document.querySelector(`[data-notebook="${notebookId}"]`);
+            const $activateItem = $deletedNotebook.nextElementSibling ?? $deletedNotebook.previousElementSibling;
+
+            if($activateItem){
+                $activateItem.click();
+            } else {
+                $notePanelTitle.innerHTML = '';
+                //$notePanel.innerHTML = '';
+            }
+
+            $deletedNotebook.remove();
         }
     }
 }

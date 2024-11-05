@@ -3,6 +3,7 @@
 import { activeNotebook, makeElementEditable } from "../utils";
 import { db } from "../db";
 import { client } from "../client";
+import { DeleteConfirmModal } from "./Modal";
 
 const $notePanelTitle = document.querySelector('[data-note-panel-title]');
 
@@ -46,6 +47,21 @@ export const SidebarItem = function (id, name) {
             client.notebook.update(id, updatedNotebookData);
 
         }
+    });
+
+    // notebook delete functionality
+    const $itemDeleteBtn = $sidebarItem.querySelector('[data-delete-btn]');
+    $itemDeleteBtn.addEventListener('click', function (){
+
+        const modal = DeleteConfirmModal(name);
+        modal.open();
+        modal.onSubmit(function (isConfirm) {
+            if (isConfirm){
+                db.delete.notebook(id);
+                client.notebook.delete(id);
+            }
+            modal.close();
+        });
     });
 
     return $sidebarItem;
