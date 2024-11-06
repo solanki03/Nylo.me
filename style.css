@@ -35,3 +35,14 @@
     visibility: visible;
   }
 }
+
+button:disabled {
+  cursor: not-allowed; /* Makes it clear that the button is not clickable */
+  opacity: 0.5; /* Makes the button look disabled */
+}
+
+button:disabled:hover {
+  background-color: initial; /* Remove the hover background color */
+  color: initial; /* Remove the hover text color */
+  box-shadow: none; /* Remove the hover shadow effect */
+}

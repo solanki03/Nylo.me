@@ -58,5 +58,14 @@ export const client = {
 
             $deletedNotebook.remove();
         }
+    },
+
+    note: {
+        // creates a new note card in the UI based on provided note data
+        create(noteData) {
+
+            // append card in notePanel
+            const $card = Card();
+        }
     }
 }

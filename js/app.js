@@ -3,6 +3,7 @@
 import { addEventOnElements, getGreetingMsg, activeNotebook, makeElementEditable } from "./utils.js";
 import { db } from "./db.js";
 import { client } from "./client.js";
+import { NoteModal } from "./components/Modal.js";
 
 // ----- Toggle Sidebar in small screen -----
 const $sideBar = document.querySelector('[data-sidebar]');
@@ -33,7 +34,7 @@ const $addNotebookbtn = document.querySelector('[data-add-notebook]');
 const showNotebookField = () => {
     // Create a new note item 
     const $item = document.createElement('div');
-    $item.classList.add('flex', 'items-center', 'justify-between', 'h-[44px]', 'p-3', 'rounded-3xl',  'hover:bg-[#FFDBCA]', 'hover:dark:bg-[#5C4032]', 'hover-container');
+    $item.classList.add('flex', 'items-center', 'justify-between', 'h-[44px]', 'p-3', 'rounded-3xl',  'hover:bg-[#FFDBCA]', 'hover:dark:bg-[#5C4032]', 'hover-container', 'active');
     
     // Add content to the new note item
     $item.innerHTML = `
@@ -79,3 +80,23 @@ const renderExistedNotebook = function (){
 }
 
 renderExistedNotebook();
+
+
+// ----- Create a new Note -----  
+const $noteCreateBtn = document.querySelector('[data-note-create-btn]');
+
+addEventOnElements($noteCreateBtn, 'click', function () {
+    // create and open a new modal
+    const modal = NoteModal();
+    modal.open();
+
+    // handle the submission of the new note to the database and client
+    modal.onSubmit(noteObj => {
+        const activeNotebookId = document.querySelector('[data-notebook].active').dataset.notebook;
+        
+        const noteData = db.post.note(activeNotebookId, noteObj);
+        client.note.create(noteData);
+
+        modal.close();
+    })
+});

@@ -1,10 +1,18 @@
 'use strict';
 
 const addEventOnElements = ($elements, eventType, callback) => {
-    $elements.forEach($element => {
-        $element.addEventListener(eventType, callback);
-    });
-}
+    if (NodeList.prototype.isPrototypeOf($elements) || Array.isArray($elements)) {
+        // If $elements is a NodeList or an Array, iterate over it
+        $elements.forEach($element => {
+            $element.addEventListener(eventType, callback);
+        });
+    } else if ($elements instanceof Element) {
+        // If $elements is a single element, add the event listener directly
+        $elements.addEventListener(eventType, callback);
+    } else {
+        console.error("Invalid argument passed to addEventOnElements");
+    }
+};
 
 // ----- displays a greeting message based on the current hour of the day -----
 const getGreetingMsg = function (currentHour) {
@@ -24,14 +32,14 @@ let $lastActiveItem;
 const activeNotebook = function () {
     // Deactivate the previously active item, if it exists
     if ($lastActiveItem) {
-        $lastActiveItem.classList.remove('bg-[#FFDBCA]', 'dark:bg-[#5C4032]');
+        $lastActiveItem.classList.remove('bg-[#FFDBCA]', 'dark:bg-[#5C4032]', 'active');
     }
 
     // Check if dark mode is active
     const isDarkMode = document.documentElement.classList.contains('dark');
     //console.log(isDarkMode);
 
-    this.classList.add(isDarkMode ? 'bg-[#5C4032]' : 'bg-[#FFDBCA]');
+    this.classList.add(isDarkMode ? ('bg-[#5C4032]', 'active') : ('bg-[#FFDBCA]', 'active'));
 
     // Update the last active item reference
     $lastActiveItem = this;
