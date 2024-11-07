@@ -100,7 +100,6 @@ export const client = {
 
         // reads and displays a list of notes in the UI
         read(noteList) {
-
             if (noteList.length) {
                 $notePanel.innerHTML = '';
 
@@ -112,6 +111,13 @@ export const client = {
                 $notePanel.innerHTML = emptyNotesTemplate;
             }
 
+        },
+
+        // updates a note card in the UI based on provided note data.
+        update(noteId, noteData) {
+            const $oldCard = document.querySelector(`[data-note="${noteId}"]`);
+            const $newCard = Card(noteData);
+            $notePanel.replaceChild($newCard, $oldCard);
         }
     }
 }

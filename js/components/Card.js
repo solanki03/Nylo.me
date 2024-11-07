@@ -1,6 +1,9 @@
 'use strict';
 
 import { getRelativeTime } from "../utils";
+import { NoteModal } from "./Modal";
+import { client } from "../client";
+import { db } from "../db";
 
 // creates a HTML card element representing a note based on provided note data
 export const Card = function (noteData) {
@@ -22,6 +25,20 @@ export const Card = function (noteData) {
             </button>
         </div>
     `;
+
+    // note detail view & edit functionality
+    $card.addEventListener('click', function() {
+        const modal = NoteModal(title, text, getRelativeTime(postedOn));
+        modal.open();
+
+        modal.onSubmit(function (noteData) {
+            const updatedData = db.update.note(id, noteData);
+
+            // update the note in the client UI
+            client.note.update(id, updatedData);
+            modal.close();
+        });
+    });
 
     return $card;
 }

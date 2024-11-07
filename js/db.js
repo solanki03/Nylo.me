@@ -1,6 +1,6 @@
 "use strict";
 
-import { generateID, findNotebook, findNotebookIndex } from "./utils";
+import { generateID, findNotebook, findNotebookIndex, findNote } from "./utils";
 
 // database object
 let nylomeDB = {};
@@ -106,6 +106,18 @@ export const db = {
 
             writeDB();
             return notebook;
+        },
+
+        // updates the content of a note in the database
+        note(noteId, object) {
+            readDB();
+
+            const oldNote = findNote(nylomeDB, noteId);
+            const newNote = Object.assign(oldNote, object);
+
+            writeDB();
+
+            return newNote;
         }
     },
 
