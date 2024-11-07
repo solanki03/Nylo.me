@@ -95,7 +95,7 @@ export const client = {
 
             // append card in notePanel
             const $card = Card(noteData);
-            $notePanel.appendChild($card);
+            $notePanel.prepend($card);
         },
 
         // reads and displays a list of notes in the UI
@@ -118,6 +118,14 @@ export const client = {
             const $oldCard = document.querySelector(`[data-note="${noteId}"]`);
             const $newCard = Card(noteData);
             $notePanel.replaceChild($newCard, $oldCard);
+        },
+
+        // Delete a note card from the UI
+        delete(noteId, isNoteExists) {
+            document.querySelector(`[data-note="${noteId}"]`).remove();
+            if(!isNoteExists) {
+                $notePanel.innerHTML = emptyNotesTemplate;
+            }
         }
     }
 }

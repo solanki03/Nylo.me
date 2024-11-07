@@ -1,6 +1,6 @@
 "use strict";
 
-import { generateID, findNotebook, findNotebookIndex, findNote } from "./utils";
+import { generateID, findNotebook, findNotebookIndex, findNote, findNoteIndex } from "./utils";
 
 // database object
 let nylomeDB = {};
@@ -130,6 +130,20 @@ export const db = {
             nylomeDB.notebooks.splice(notebookIndex, 1);
 
             writeDB();
+        },
+
+        // deletes a note from a specified notebook in the database.
+        note(notebookId, noteId){
+            readDB();
+
+            const notebook = findNotebook(nylomeDB, notebookId);
+            const noteIndex = findNoteIndex(notebook, noteId);
+
+            notebook.notes.splice(noteIndex, 1);
+
+            writeDB();
+
+            return notebook.notes;
         }
     }
 }

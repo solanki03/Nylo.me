@@ -1,7 +1,7 @@
 'use strict';
 
 import { getRelativeTime } from "../utils";
-import { NoteModal } from "./Modal";
+import { DeleteConfirmModal, NoteModal } from "./Modal";
 import { client } from "../client";
 import { db } from "../db";
 
@@ -20,7 +20,7 @@ export const Card = function (noteData) {
 
         <div class="flex items-center justify-between mt-auto text-sm">
             <p>${getRelativeTime(postedOn)}</p>
-            <button class="hover:hover-container">
+            <button class="hover:hover-container" data-delete-btn>
                 <i class="ri-delete-bin-5-line rounded-full p-2 hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032]"></i>
             </button>
         </div>
@@ -36,6 +36,27 @@ export const Card = function (noteData) {
 
             // update the note in the client UI
             client.note.update(id, updatedData);
+            modal.close();
+        });
+    });
+
+    // Note delete functionality
+    const $deleteBtn = $card.querySelector('[data-delete-btn]');
+    $deleteBtn.addEventListener('click', function (event) {
+        event.stopImmediatePropagation();
+
+        const modal = DeleteConfirmModal(title);
+
+        modal.open();
+
+        modal.onSubmit(function(isConfirm) {
+            if(isConfirm) {
+                const existedNotes = db.delete.note(notebookId, id);
+
+                // update the client UI to reflect note deletion
+                client.note.delete(id, existedNotes.length);
+            }
+
             modal.close();
         });
     });
