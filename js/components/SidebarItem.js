@@ -27,6 +27,9 @@ export const SidebarItem = function (id, name) {
     $sidebarItem.addEventListener('click', function(){
         $notePanelTitle.textContent = name;
         activeNotebook.call(this);
+
+        const noteList = db.get.note(this.dataset.notebook);
+        client.note.read(noteList);
     });
 
     // notebook edit functionality

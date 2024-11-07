@@ -82,6 +82,17 @@ export const db = {
             readDB();
 
             return nylomeDB.notebooks;
+        },
+
+        // retrieves all notes within a specified notebook
+        note(notebookId) {
+            readDB();
+
+            const notebook = findNotebook(nylomeDB, notebookId);
+            return notebook.notes;       /**Uncaught TypeError: Cannot read properties of undefined (reading 'notes')
+            at Object.note (db.js:92:29)
+            at renderExistedNote (app.js:111:33)
+            at app.js:118:1 */
         }
     },
 

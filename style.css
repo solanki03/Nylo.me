@@ -1,3 +1,9 @@
+:root {
+  /* Light mode colors */
+  --scrollbar-bg: #d6622d;
+  --scrollbar-thumb: #572d1a;
+}
+
 /* Initially hide buttons */
 .ri-edit-line,
 .ri-delete-bin-6-line,
@@ -14,7 +20,7 @@
 }
 
 ::selection {
-  background-color: #FFDBCA; 
+  background-color: #f0b093; 
   color: #181210; 
 }
 
@@ -36,7 +42,7 @@
   }
 }
 
-button:disabled {
+button[disabled] {
   cursor: not-allowed; /* Makes it clear that the button is not clickable */
   opacity: 0.5; /* Makes the button look disabled */
 }
@@ -45,4 +51,28 @@ button:disabled:hover {
   background-color: initial; /* Remove the hover background color */
   color: initial; /* Remove the hover text color */
   box-shadow: none; /* Remove the hover shadow effect */
+}
+
+.scrollable-container {
+  overflow-y: auto; /* Enable vertical scroll */
+  max-height: 80vh; /* Set max height if needed */
+}
+
+/* Scrollbar Styling */
+.scrollable-container::-webkit-scrollbar {
+  width: 8px; /* Adjust width */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-bg); /* Track background */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb); /* Thumb color */
+  border-radius: 10px;
+}
+
+/* Optional: Hover effect on scrollbar thumb */
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background-color: darken(var(--scrollbar-thumb), 10%);
 }

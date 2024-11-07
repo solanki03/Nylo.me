@@ -23,7 +23,7 @@
 
 <body class="bg-[#FFFBFF] text-[#201A18] lg:ps-[330px] dark:bg-[#201A18] dark:text-[#EDE0DB] font-kumbhSans">
   <!-- Sidebar section start -->
-  <header class="fixed top-0 left-0 w-80 z-20 h-screen py-5 px-3 bg-[#FFF8F6] dark:bg-[#201A18] shadow-lg transform -translate-x-full transition-transform duration-300 lg:translate-x-0" data-sidebar>
+  <header class="fixed top-0 left-0 w-80 z-30 h-screen py-5 px-3 bg-[#FFF8F6] dark:bg-[#201A18] shadow-lg transform -translate-x-full transition-transform duration-300 lg:translate-x-0" data-sidebar>
     <!-- logo section start -->
     <div class="flex items-center justify-between p-2 mb-6">
       <div class="flex items-center">
@@ -47,7 +47,7 @@
     <!-- create notes section end -->
 
     <!-- my note collection section start -->
-    <div class="overflow-y-auto h-screen bg-[#FFFBFF] text-[#201A18] dark:bg-[#201A18] dark:text-[#EDE0DB]" data-sidebar-list>
+    <div class="overflow-y-auto h-[72dvh] bg-[#FFF8F6] text-[#201A18] dark:bg-[#201A18] dark:text-[#EDE0DB] scrollable-container" data-sidebar-list>
       <!-- <div class="flex items-center justify-between p-3 rounded-3xl hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032] hover-container">
         <p class="text-sm" data-notebook-field>My Collection</p>
         <div>
@@ -71,7 +71,7 @@
   <!-- Sidebar section end -->
 
   <!-- Overlay section -->
-  <div class="fixed inset-0 bg-black bg-opacity-50 hidden" data-sidebar-overlay data-sidebar-toggler></div>
+  <div class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden" data-sidebar-overlay data-sidebar-toggler></div>
 
   <!-- Main section start -->
   <main class="p-4 md:p-6">
@@ -102,12 +102,10 @@
     <!-- Note list container start -->
     <h2 class="mb-3" data-note-panel-title></h2>
 
-    <div class="relative grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] content-start items-stretch gap-2">
+    <div class="relative grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] content-start items-stretch gap-2 h-[78dvh] scrollable-container" data-note-panel>
       <!-- card -->
-      <div
-        class="bg-[#EDE0DB] dark:bg-[#181210] p-4 hidden border-2 border-[#85736B] dark:border-[#52443D] rounded-2xl cursor-pointer hover:bg-[#D7C2B9] hover:dark:bg-[#2e2b2b] hover:border-[#645c58] hover-container flex flex-col"
-        data-note-panel
-      >
+      <!-- <div
+        class="bg-[#EDE0DB] dark:bg-[#181210] p-4 hidden border-2 border-[#85736B] dark:border-[#52443D] rounded-2xl cursor-pointer hover:bg-[#D7C2B9] hover:dark:bg-[#2e2b2b] hover:border-[#645c58] hover-container flex flex-col">
         <h3 class="text-[#2B160A] dark:text-[#D7C2B9] text-wrap mb-3">Note title</h3>
         <p class="mb-4 overflow-hidden line-clamp-4">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -122,20 +120,21 @@
             <i class="ri-delete-bin-5-line rounded-full p-2 hover:bg-[#FFDBCA] hover:dark:bg-[#5C4032]"></i>
           </button>
         </div>
-      </div>
+      </div> -->
+
     </div>
     <!-- Note list container end -->
 
     <!-- Create note button start-->
     <button
-      class="bg-[#FFDBCA] dark:bg-[#552100] dark:text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#85736B] dark:shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#D7C2B9] hover:dark:bg-[#783200] lg:bottom-10 lg:right-14" data-note-create-btn>
+      class="bg-[#FFDBCA] dark:bg-[#552100] dark:text-[#D7C2B9] p-3.5 rounded-2xl flex items-center shadow-[#85736B] dark:shadow-[#110d0b] shadow-md fixed bottom-4 right-4 z-10 hover:bg-[#D7C2B9] hover:dark:bg-[#783200] lg:bottom-10 lg:right-14 disabled:cursor-not-allowed disabled:opacity-50" data-note-create-btn disabled>
       <i class="ri-add-large-line mr-2"></i> New note
     </button>
     <!-- Create note button end-->
 
     <!-- Modal section start -->
     <!-- Add a note section start -->
-    <div
+    <!-- <div
       class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 max-w-[560px] p-6 rounded-2xl bg-[#FFDBCA] shadow-[#85736B] dark:bg-[#3A3330] dark:shadow-[#110d0b] shadow-md z-50 modal-motion">
       <button class="absolute top-4 right-4">
         <i class="ri-close-line"></i>
@@ -153,7 +152,7 @@
           Save
         </button>
       </div>
-    </div>
+    </div> -->
     <!-- Add a note section end -->
 
     <!-- Delete a note section start -->
@@ -175,10 +174,10 @@
     <!-- Modal section end -->
 
     <!-- empty notes section start -->
-    <div class="hidden absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none">
+    <!-- <div class="hidden absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none">
       <i class="ri-sticky-note-line text-6xl opacity-25"></i>
       <h3 class="opacity-25 text-xl font-semibold">No notes</h3>
-    </div>
+    </div> -->
     <!-- empty notes section end -->
   </main>
   <!-- Main section end -->
