@@ -24,7 +24,7 @@ export const SidebarItem = function (id, name) {
 
     // handles the click event on the sidebar items. 
     // updates the note panel's title, retrieves the associated notes, and marks the item as active. 
-    $sidebarItem.addEventListener('click', function(){
+    $sidebarItem.addEventListener('click', function () {
         $notePanelTitle.textContent = name;
         activeNotebook.call(this);
 

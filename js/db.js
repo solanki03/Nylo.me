@@ -89,10 +89,9 @@ export const db = {
             readDB();
 
             const notebook = findNotebook(nylomeDB, notebookId);
-            return notebook.notes;       /**Uncaught TypeError: Cannot read properties of undefined (reading 'notes')
-            at Object.note (db.js:92:29)
-            at renderExistedNote (app.js:111:33)
-            at app.js:118:1 */
+
+            // Return an empty array if no notebook is found
+            return notebook ? notebook.notes : [];       
         }
     },
 

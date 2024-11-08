@@ -107,12 +107,17 @@ addEventOnElements($noteCreateBtn, 'click', function () {
 const renderExistedNote = function () {
     const activeNotebookId = document.querySelector('[data-notebook].active')?.dataset.notebook;
 
-    if(activeNotebook) {
+    if (activeNotebookId) {
         const noteList = db.get.note(activeNotebookId);
-        
-        // display existing ote
-        client.note.read(noteList);
+
+        if (noteList) { // Only proceed if noteList exists
+            client.note.read(noteList);
+        } else {
+            console.log("No notes found in the active notebook.");
+        }
+    } else {
+        console.log("No active notebook found.");
     }
-}
+};
 
 renderExistedNote();

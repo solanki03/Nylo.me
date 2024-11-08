@@ -30,21 +30,28 @@ const getGreetingMsg = function (currentHour) {
 let $lastActiveItem;
 
 const activeNotebook = function () {
-    // Deactivate the previously active item, if it exists
-    if ($lastActiveItem) {
-        $lastActiveItem.classList.remove('bg-[#FFDBCA]', 'dark:bg-[#5C4032]', 'active');
-    }
-
     // Check if dark mode is active
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    //console.log(isDarkMode);
+    requestAnimationFrame(() => {
+        const isDarkMode = document.documentElement.classList.contains('dark');
 
-    this.classList.add(isDarkMode ? ('bg-[#5C4032]', 'active') : ('bg-[#FFDBCA]', 'active'));
+        // Deactivate the previously active item and clears inline styles, if it exists
+        if ($lastActiveItem) {
+            $lastActiveItem.classList.remove('active');
+            $lastActiveItem.style.backgroundColor = ''; 
+        }
 
-    // Update the last active item reference
-    $lastActiveItem = this;
-    //console.log(this);
-    
+        // Apply the appropriate background color based on the dark mode status
+        if (isDarkMode) {
+            this.classList.add('active');
+            this.style.backgroundColor = '#5C4032';
+        } else {
+            this.classList.add('active');
+            this.style.backgroundColor = '#FFDBCA';
+        }
+
+        // Update the last active item reference
+        $lastActiveItem = this;
+    });
 };
 
 // to edit the name of the notebook

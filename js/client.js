@@ -19,12 +19,6 @@ const emptyNotesTemplate = `
 
 // enables or disables "New note" button based on whether there are any notebooks
 const disableNoteCreateBtn = function (isThereAnyNotebooks) {
-    // if (isThereAnyNotebooks) {
-    //     $noteCreateBtn.disabled = false;
-    // } else {
-    //     $noteCreateBtn.disabled = true;
-    // }
-    // console.log("Disabling Note Button:", !isThereAnyNotebooks);
     $noteCreateBtn.disabled = !isThereAnyNotebooks;
 }
 
